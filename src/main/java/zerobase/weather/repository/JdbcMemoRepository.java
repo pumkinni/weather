@@ -32,6 +32,7 @@ public class JdbcMemoRepository {
         return jdbcTemplate.query(sql, memoRowMapper());
     }
 
+    // id를 이용해 정보 가져오기
     public Optional<Memo> findById(int id){
         String sql = "Select * from memo where id = ?";
         return jdbcTemplate.query(sql, memoRowMapper(), id).stream().findFirst();
