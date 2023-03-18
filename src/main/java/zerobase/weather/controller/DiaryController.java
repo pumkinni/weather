@@ -26,27 +26,27 @@ public class DiaryController {
 
     // 특정 날짜의 다이어리 값들을 가져오기
     @GetMapping("/read/diary")
-    List<Diary> readDiary(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date){
+    List<Diary> readDiary(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         return diaryService.readDiary(date);
     }
 
     // 특정 기간동안의 다이어리 값들을 가져오기
     @GetMapping("/read/diaries")
     List<Diary> readDairies(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
-                            @RequestParam@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate){
+                            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
         return diaryService.readDiaries(startDate, endDate);
     }
 
     // 다이어리 수정
     @PutMapping("/update/diary")
     void upgradeDiary(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
-                      @RequestBody String text){
+                      @RequestBody String text) {
         diaryService.updateDiary(date, text);
     }
 
     // 다이어리 삭제
     @DeleteMapping("/delete/diary")
-    void deleteDairy(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date){
+    void deleteDairy(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         diaryService.deleteDiary(date);
     }
 }
