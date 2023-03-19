@@ -22,8 +22,8 @@ public class DiaryController {
     @ApiOperation("일기 텍스트, 날씨를 이용해 DB에 일기 저장")
     @PostMapping("/create/diary")
     void createDiary(@RequestParam
-                     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @ApiParam(value = "저장할 일기의 날짜", example = "2022-01-01")LocalDate date, // date 타입이 다양해 포맷을 정하기 위해서 사용
-                     @RequestBody @ApiParam(value = "저장할 일기의 내용", example = "오늘은 api swagger 에 대해 배웠다.")String text) {
+                     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @ApiParam(value = "저장할 일기의 날짜", example = "2022-01-01") LocalDate date, // date 타입이 다양해 포맷을 정하기 위해서 사용
+                     @RequestBody @ApiParam(value = "저장할 일기의 내용", example = "오늘은 api swagger 에 대해 배웠다.") String text) {
         diaryService.createDiary(date, text);
     }
 
@@ -45,7 +45,7 @@ public class DiaryController {
     // 다이어리 수정
     @ApiOperation("선택 날짜의 가장 오래된 일기의 값을 수정")
     @PutMapping("/update/diary")
-    void upgradeDiary(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @ApiParam(value = "수정할 일기의 날짜", example = "2022-01-01")LocalDate date,
+    void upgradeDiary(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @ApiParam(value = "수정할 일기의 날짜", example = "2022-01-01") LocalDate date,
                       @RequestBody String text) {
         diaryService.updateDiary(date, text);
     }
@@ -53,7 +53,7 @@ public class DiaryController {
     // 다이어리 삭제
     @ApiOperation("선택 날짜의 모든 일기들을 삭제")
     @DeleteMapping("/delete/diary")
-    void deleteDairy(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @ApiParam(value = "삭제할 일기의 날찌", example = "2022-01-01")LocalDate date) {
+    void deleteDairy(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @ApiParam(value = "삭제할 일기의 날찌", example = "2022-01-01") LocalDate date) {
         diaryService.deleteDiary(date);
         diaryService.deleteDiary(date);
     }
