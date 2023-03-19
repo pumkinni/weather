@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class DiaryService {
 
     @Value("${openweathermap.key}")

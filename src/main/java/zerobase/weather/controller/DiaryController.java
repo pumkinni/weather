@@ -55,6 +55,5 @@ public class DiaryController {
     @DeleteMapping("/delete/diary")
     void deleteDairy(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @ApiParam(value = "삭제할 일기의 날찌", example = "2022-01-01") LocalDate date) {
         diaryService.deleteDiary(date);
-        diaryService.deleteDiary(date);
     }
 }
